@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>C89</title>
+        <style>
+            body{
+                text-align: center;
+            }
+            button{
+                background-color: dodgerblue;
+                width: 50%;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Activity 1</h1>
+        <h2>Score: <span id="score">0</span></h2>
+        <button onclick="update()">Update Score</button><br>
+        <button onclick="save()">Save Score</button><br>
+        <button onclick="next()">Next</button>
+    </body>
+    <script>
+        var score = 0;
+        var scoreE = document.getElementById("score");
+        if(localStorage.getItem("score")){
+            score = localStorage.getItem("score");
+            scoreE.innerHTML = score;
+        }
+
+        var update = function(){
+            score++;
+            scoreE.innerHTML = score;
+        }, save = function(){
+            localStorage.setItem("score", score);
+        }, next = function(){
+            window.location = "page2.html";
+        }
+    </script>
+</html>
